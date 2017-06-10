@@ -31,6 +31,13 @@
             font-family: 'Yanone Kaffeesatz';
             font-weight: 100;
         }
+
+        .author {
+            position: absolute;
+            right: 75px;
+            color: gray;
+            font-style: italic;
+        }
 }
 
     </style>
@@ -61,68 +68,83 @@ hierarchical datasets.
 ---
 .context[hierarchical data]
 # Agenda
-1. *Why* should I care?
+1. *Why* does it matter?
 2. *What* are they?
 3. *How* do I work with them?
 4. From data to visual
 
 ---
 .context[hierarchical data]
-# Why should I care?
+# Why does it matter?
 
-.center[I will, in <b>fact</b>, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
-—Linus Torvalds]
+“Data!data!data!" he cried impatiently.<br>
+"I can't make bricks without clay.”<br>
+.author[—Sherlock Holmes]
+<br>&nbsp;<br>
+--
 
-Smart data structures and dumb code works a lot better than the other way around.
-—Eric S. Raymond ("ESR", The Cathedral and the Bazaar)
+Smart data structures and dumb code works a lot better<br>
+than the other way around.<br>
+.author[—Eric S. Raymond (The Cathedral and the Bazaar)]
+<br>&nbsp;<br>
+--
 
-“Data!data!data!" he cried impatiently. "I can't make bricks without clay.”
-—Arthur Conan Doyle, The Adventure of the Copper Beeches
+Bad programmers worry about the code.<br>
+Good programmers worry about data structures and their relationships.<br>
+.author[—Linus Torvalds]
 
 
 ---
-.sectionReminder[Hey]
+.context[why does it matter?]
 
-# Why should I care?
+# Natural hierarchies
 
-What are some examples of hierarchical data?
-* Country / State / City / Street / House
+Some data is naturally hierarchical:
+
+--
+* Country ⇢ State ⇢ City ⇢ Street ⇢ House
 
 ``` json
 {
   "continent": "North America",
   "countries": [
+    { "country": "Canada" },
     { "country": "Mexico" },
     { "country": "United States",
       "states": [
-        { "state": "Indiana" },
-        { "state": "California" }
-      ]
-    },
-    { "countries": "Canada",
-      "provinces": [
-*       { "province": "Quebec" }
+        { "state": "California" },
+        { "state": "Indiana",
+          "cities": [
+            { "city": "Fishers" },
+            { "city": "Carmel" },
+            { "city": "Indianapolis" }
+          ]
+        }
       ]
     }
   ]
 }
-
-
 ```
 ---
+.context[why does it matter?]
 
-It’s the natural way to think about some data structures.
-Get examples from the class.
-Paper & Pencil exercise:  Draw a model of a dataset they work with that is hierarchical.
-It’s the bridge to some visualizations [show examples of each]
-tree (http://bl.ocks.org/d3noob/8329447; http://uark.libguides.com/c.php?g=79179&p=511880) [aka, “dendrogram”]
-sunbursts
-treemap (https://bl.ocks.org/mbostock/2838bf53e0e65f369f476afd653663a2)
-pack
+# Natural hierarchies
 
+Some data is naturally hierarchical:
 
+* Country ⇢ State ⇢ City ⇢ Street ⇢ House
+* CEO ⇢ EVP ⇢ SVP ⇢ VP ⇢ DIR ⇢ MGR
 
-    </textarea>
+--
+* Folder ⇢ Subfolder ⇢ File
+
+--
+* Dictionary ⇢ Letter ⇢ Word ⇢ Part-of-speech ⇢ Definitions ⇢ Examples
+<br>&nbsp;<br>
+
+.right[<img height="250" src="img/hierarchyDefinition3.jpeg"/>]
+
+</textarea>
 <script src="js/remark-latest.min.js">
 </script>
 <script>
