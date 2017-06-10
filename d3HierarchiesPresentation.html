@@ -38,7 +38,6 @@
             color: gray;
             font-style: italic;
         }
-}
 
     </style>
 </head>
@@ -93,15 +92,16 @@ Bad programmers worry about the code.<br>
 Good programmers worry about data structures and their relationships.<br>
 .author[—Linus Torvalds]
 
-
 ---
+name: natural-hierarchies
 .context[why does it matter?]
 
 # Natural hierarchies
 
 Some data is naturally hierarchical:
 
---
+---
+template: natural-hierarchies
 * Country ⇢ State ⇢ City ⇢ Street ⇢ House
 
 ``` json
@@ -126,11 +126,8 @@ Some data is naturally hierarchical:
 }
 ```
 ---
+template: natural-hierarchies
 .context[why does it matter?]
-
-# Natural hierarchies
-
-Some data is naturally hierarchical:
 
 * Country ⇢ State ⇢ City ⇢ Street ⇢ House
 * CEO ⇢ EVP ⇢ SVP ⇢ VP ⇢ DIR ⇢ MGR
@@ -142,7 +139,17 @@ Some data is naturally hierarchical:
 * Dictionary ⇢ Letter ⇢ Word ⇢ Part-of-speech ⇢ Definitions ⇢ Examples
 <br>&nbsp;<br>
 
-.right[<img height="250" src="img/hierarchyDefinition.jpeg"/>]
+
+<table width="100%">
+    <tr>
+        <td>Other naturally occuring hierarchical data?</td>
+        <td><img height="250" src="img/hierarchyDefinition.jpeg"/></td>
+    </tr>
+</table>
+
+
+
+
 
 </textarea>
 <script src="js/remark-latest.min.js">
@@ -155,13 +162,13 @@ Some data is naturally hierarchical:
         navigation: {
             scroll: true,
             touch: true,
-            click: true
+            click: false
         },
         highlightLines: true,
         highlightStyle: 'solarized-dark',  // arta, ir-black, solarized-dark, sunburst
 
         // Enable or disable counting of incremental slides in the slide counting
-        countIncrementalSlides: true
+        countIncrementalSlides: false
     });
 </script>
 </body>
