@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+        @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz);
+        @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+        @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+        body {
+            font-family: 'Droid Serif';
+        }
+
+        h1, h2, h3 {
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: normal;
+        }
+
+        .remark-code, .remark-inline-code {
+            font-family: 'Ubuntu Mono';
+        }
+
+        .context {
+            position: absolute;
+            top: 40px;
+            right: 40px;
+            text-align: right;
+            color: lightgray;
+            font-size: larger;
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: 100;
+        }
+}
+
+    </style>
+</head>
+<body>
+<textarea id="source">
+
+class: center, middle
+
+# Hierarchical Data: Why? What? How?
+
+---
+.context[hierarchical data]
+# Our Goal?
+
+By the end of this session,<br>
+you should have a<br>
+solid understanding,<br>
+and a comfort with,<br>
+hierarchical datasets.
+
+--
+### We will learn:
+* when to use them
+* how to interact with them
+* several ways to apply them to d3 visuals
+
+---
+.context[hierarchical data]
+# Agenda
+1. *Why* should I care?
+2. *What* are they?
+3. *How* do I work with them?
+4. From data to visual
+
+---
+.context[hierarchical data]
+# Why should I care?
+
+.center[I will, in <b>fact</b>, claim that the difference between a bad programmer and a good one is whether he considers his code or his data structures more important. Bad programmers worry about the code. Good programmers worry about data structures and their relationships.
+—Linus Torvalds]
+
+Smart data structures and dumb code works a lot better than the other way around.
+—Eric S. Raymond ("ESR", The Cathedral and the Bazaar)
+
+“Data!data!data!" he cried impatiently. "I can't make bricks without clay.”
+—Arthur Conan Doyle, The Adventure of the Copper Beeches
+
+
+---
+.sectionReminder[Hey]
+
+# Why should I care?
+
+What are some examples of hierarchical data?
+* Country / State / City / Street / House
+
+``` json
+{
+  "continent": "North America",
+  "countries": [
+    { "country": "Mexico" },
+    { "country": "United States",
+      "states": [
+        { "state": "Indiana" },
+        { "state": "California" }
+      ]
+    },
+    { "countries": "Canada",
+      "provinces": [
+*       { "province": "Quebec" }
+      ]
+    }
+  ]
+}
+
+
+```
+---
+
+It’s the natural way to think about some data structures.
+Get examples from the class.
+Paper & Pencil exercise:  Draw a model of a dataset they work with that is hierarchical.
+It’s the bridge to some visualizations [show examples of each]
+tree (http://bl.ocks.org/d3noob/8329447; http://uark.libguides.com/c.php?g=79179&p=511880) [aka, “dendrogram”]
+sunbursts
+treemap (https://bl.ocks.org/mbostock/2838bf53e0e65f369f476afd653663a2)
+pack
+
+
+
+    </textarea>
+<script src="js/remark-latest.min.js">
+</script>
+<script>
+    var slideshow = remark.create({
+        ratio: '4:3',
+
+        // Navigation options
+        navigation: {
+            scroll: true,
+            touch: true,
+            click: true
+        },
+        highlightLines: true,
+        highlightStyle: 'solarized-dark',  // arta, ir-black, solarized-dark, sunburst
+
+        // Enable or disable counting of incremental slides in the slide counting
+        countIncrementalSlides: true
+    });
+</script>
+</body>
+</html>
