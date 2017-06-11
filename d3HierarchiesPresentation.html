@@ -49,7 +49,8 @@
 
 class: center, middle
 
-# Hierarchical Data: Why? What? How?
+# Hierarchical Datasets
+## When? What? How?
 
 ---
 .context[hierarchical data]
@@ -63,28 +64,30 @@ hierarchical datasets.
 
 --
 ### We will learn:
-* when to use them
-* how to interact with them
-* several ways to apply them to d3 visuals
 
----
-.context[hierarchical data]
-# Agenda
-1. *Why* does it matter?
-2. *What* are they?
-3. *How* do I work with them?
-4. From data to visual
-
----
-.context[hierarchical data]
-# Why does it matter?
-
-“Data!data!data!" he cried impatiently.<br>
-"I can't make bricks without clay.”<br>
-.author[—Sherlock Holmes]
-<br>&nbsp;<br>
 --
+1. *When* do they matter?
 
+--
+2. *What* are they?
+
+--
+3. *How* do we work with them?<br>
+
+--
+... & some d3 visuals
+
+---
+
+class: center, middle
+
+## When do they matter?
+
+---
+.context[hierarchical data]
+# When do they matter?
+
+<br>&nbsp;<br>
 Smart data structures and dumb code works a lot better<br>
 than the other way around.<br>
 .author[—Eric S. Raymond (The Cathedral and the Bazaar)]
@@ -94,10 +97,20 @@ than the other way around.<br>
 Bad programmers worry about the code.<br>
 Good programmers worry about data structures and their relationships.<br>
 .author[—Linus Torvalds]
+<br>&nbsp;<br>
+
+--
+“Data! Data! Data!" he cried impatiently.<br>
+"I can't make bricks without clay.”<br>
+.author[—Sherlock Holmes]
+<br>&nbsp;<br>
+<br>&nbsp;<br>
+--
+.center[**It matters now....**]
 
 ---
 name: natural-hierarchies
-.context[why does it matter?]
+.context[when it matters]
 
 # Natural hierarchies
 
@@ -106,6 +119,7 @@ Some data is naturally hierarchical:
 ---
 template: natural-hierarchies
 * Country ⇢ State ⇢ City ⇢ Street ⇢ House
+<!--- TODO: Add a visual of the hierarchy before the json.  --->
 
 ``` json
 {
@@ -130,7 +144,7 @@ template: natural-hierarchies
 ```
 ---
 template: natural-hierarchies
-.context[why does it matter?]
+.context[when it matters]
 
 * Country ⇢ State ⇢ City ⇢ Street ⇢ House
 * CEO ⇢ EVP ⇢ SVP ⇢ VP ⇢ DIR ⇢ MGR
@@ -141,31 +155,26 @@ template: natural-hierarchies
 --
 * Dictionary ⇢ Letter ⇢ Word ⇢ Part-of-speech ⇢ Definitions ⇢ Examples
 <br>&nbsp;<br>
-
-
-<table width="100%">
-    <tr>
-        <td>Other naturally occuring hierarchical data?</td>
-        <td><img height="250" src="img/hierarchyDefinition.jpeg"/></td>
-    </tr>
-</table>
-
+<br>&nbsp;<br>
+.right[<img height="250" src="img/hierarchyDefinition.jpeg"/>]
 
 ---
-.context[why does it matter?]
+.context[when it matters]
 
 # Natural hierarchies
 
 --
 <table height="100%">
     <tr><td><span class="exercise"><i>Other examples of naturally occurring hierarchies?</i></span></td></tr>
-    <tr><td><span class="exercise">&nbsp;</span></td></tr>
+    <tr><td><span class="exercise">&nbsp;
+        <br>&nbsp;<br>
+</span></td></tr>
     <tr><td></td></tr>
     <tr><td></td></tr>
 </table>
 
 ---
-.context[why does it matter?]
+.context[when it matters]
 
 # Natural hierarchies
 
@@ -176,10 +185,74 @@ template: natural-hierarchies
     <tr><td></td></tr>
 </table>
 ---
-.context[why does it matter?]
-# d3 & hierarchies
+.context[when it matters]
+# d3 examples
 
-<iframe width="450" height="400" frameborder="0" src="tree.html"></iframe>
+<!-- TODO: Better attribute http://d3indepth.com/layouts/ and -->
+<table>
+    <tr>
+        <td><iframe width="400" height="250" frameborder="0" src="tree.html"></iframe></td>
+        <td><iframe width="400" height="250" frameborder="0" src="treemap.html"></iframe></td>
+    </tr>
+    <tr>
+        <td><div style="text-align: center;">
+            <iframe style="display: block;" width="400" height="250" frameborder="0" src="sunburst.html"></iframe></div></td>
+        <td><iframe width="400" height="250" frameborder="0" src="pack.html"></iframe></td>
+    </tr>
+</table>
+
+---
+
+class: center, middle
+
+## What are they?
+
+---
+.context[what are they]
+
+# JSON Array + JSON Object = Hierarchy
+
+* JSON Array: [ "Ford", "BMW", "Fiat" ]
+    * JSON array represents ordered list of values. JSON array can store multiple values. It can store string, number, boolean or object in JSON array.
+    * In JSON array, values must be separated by comma.
+    * The [ (square bracket) represents JSON array.
+<br>&nbsp;<br>
+
+--
+* JSON Object: { "name":"John", "age":30, "cars":[ "Ford", "BMW", "Fiat" ] }
+    * SON object holds key/value pair. Each key is represented as a string in JSON and value can be of any type. The keys and values are separated by colon. Each key/value pair is separated by comma. The curly brace { represents JSON object.
+
+---
+.context[what are they]
+
+#
+
+---
+
+class: center, middle
+
+## How do we work with them?
+
+---
+
+.context[how to work with them]
+
+# Read the docs ([d3-hierarchy](https://github.com/d3/d3-hierarchy "d3 hierarchy api documentation"))
+
+
+
+---
+
+class: center, middle
+
+## Some d3 visuals
+
+---
+.context[examples]
+
+#
+
+
 
 </textarea>
 <script src="js/remark-latest.min.js">
