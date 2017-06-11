@@ -1,74 +1,62 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-  <title>Treemap layout</title>
+    <title>Treemap</title>
+    <!-- Based on d3indepth's https://bl.ocks.org/d3indepth/96649ce5ef72d53386790908fe785a6a -->
+    <script src="js/d3.v4.min.js"></script>
 </head>
 
 <style>
-rect {
-  fill: cadetblue;
-  opacity: 0.3;
-  stroke: white;
-}
+    rect {
+        stroke: white;
+        fill: #05668D;
+        opacity: 0.3;
+    }
 </style>
 
-<body>
-  <svg width="350" height="200">
+<svg>
     <g></g>
-  </svg>
+</svg>
 
-    <script src="js/d3.v4.min.js"></script>
-  <script>
-var data = {
-  "name": "A1",
-  "children": [
-    {
-      "name": "B1",
-      "children": [
-        {
-          "name": "C1",
-          "value": 100
-        },
-        {
-          "name": "C2",
-          "value": 300
-        },
-        {
-          "name": "C3",
-          "value": 200
-        }
-      ]
-    },
-    {
-      "name": "B2",
-      "value": 200
-    }
-  ]
-};
+<script>
+    // My variables
+    var vWidth = 350;
+    var vHeight = 200;
+    var myData = {
+        "name": "Rooooot",
+        "children": [{
+            "name": "Topic X",
+            "children": [{"name": "Sub X1", "size": 300}]
+        }, {
+            "name": "Topic Y",
+            "children": [{"name": "Sub Y1", "size": 200}, {"name": "Sub Y2", "size": 200}]
+        }, {
+            "name": "Topic Z",
+            "size": 400
+        }]
+    };
 
-var treemapLayout = d3.treemap()
-  .size([350, 200])
-  .paddingOuter(10);
+    d3.select('svg')
+        .attr('width', vWidth)
+        .attr('height', vHeight);
 
-var root = d3.hierarchy(data);
+    // d3 setup
+    var root = d3.hierarchy(myData);
 
-root.sum(function(d) {
-  return d.value;
-});
+    root.sum(function (d) { return d.size; });
 
-treemapLayout(root);
+    var treemapLayout = d3.treemap()
+        .size([350, 200])
+        .paddingOuter(10);
 
-d3.select('svg g')
-  .selectAll('rect')
-  .data(root.descendants())
-  .enter()
-  .append('rect')
-  .attr('x', function(d) { return d.x0; })
-  .attr('y', function(d) { return d.y0; })
-  .attr('width', function(d) { return d.x1 - d.x0; })
-  .attr('height', function(d) { return d.y1 - d.y0; })
+    treemapLayout(root);
 
+    d3.select('svg g')
+        .selectAll('rect').data(root.descendants()).enter()
+        .append('rect')
+        .attr('x', function (d) { return d.x0; })
+        .attr('y', function (d) { return d.y0; })
+        .attr('width', function (d) { return d.x1 - d.x0; })
+        .attr('height', function (d) { return d.y1 - d.y0; })
 
-  </script>
-</body>
-</html>
+</script>

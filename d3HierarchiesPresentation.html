@@ -76,6 +76,9 @@ hierarchical datasets.
 
 --
 ... & some d3 visuals
+<br>&nbsp;<br>
+--
+(Today we focus is on the data; that means our in-class visuals will stay light.)
 
 ---
 
@@ -184,6 +187,8 @@ template: natural-hierarchies
     <tr><td></td></tr>
     <tr><td></td></tr>
 </table>
+
+.right[(taxonomies & hierarchies are a natural fit)]
 ---
 .context[when it matters]
 # d3 examples
@@ -210,17 +215,32 @@ class: center, middle
 ---
 .context[what are they]
 
-# JSON Array + JSON Object = Hierarchy
+# Hierarchy vs. Tabular
 
-* JSON Array: [ "Ford", "BMW", "Fiat" ]
-    * JSON array represents ordered list of values. JSON array can store multiple values. It can store string, number, boolean or object in JSON array.
-    * In JSON array, values must be separated by comma.
-    * The [ (square bracket) represents JSON array.
+
+
+---
+.context[what are they]
+
+# Hierarchical data = JSON Arrays + JSON Objects
+
+## JSON Array
+`[ "Listen", "Learn", "Grow" ]`
+    1. an ordered list of values, seperated by commas
+    2. it can store strings, numbers, booleans, objects, other arrays, or a combination
+    3. surrounded by [ and ] (square brackets)
 <br>&nbsp;<br>
 
 --
-* JSON Object: { "name":"John", "age":30, "cars":[ "Ford", "BMW", "Fiat" ] }
-    * SON object holds key/value pair. Each key is represented as a string in JSON and value can be of any type. The keys and values are separated by colon. Each key/value pair is separated by comma. The curly brace { represents JSON object.
+## JSON Object
+`{ "name": "John", "age": 30, "motto": [ "Listen", "Learn", "Grow" ] }`
+    1. a list of key/value pairs
+        * each pair is seperated a comma
+        * keys and values are separated by a colon
+    2. each key is a string; each value is a strings, numbers, booleans, objects, other arrays
+    3. surrounded by { and } (curly braces)
+
+
 
 ---
 .context[what are they]

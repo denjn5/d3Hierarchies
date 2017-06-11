@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<head>
+  <title>Treemap layout</title>
+</head>
+
+<style>
+rect {
+  fill: cadetblue;
+  opacity: 0.3;
+  stroke: white;
+}
+</style>
+
+<body>
+  <svg width="350" height="200">
+    <g></g>
+  </svg>
+
+    <script src="js/d3.v4.min.js"></script>
+  <script>
+var data = {
+  "name": "A1",
+  "children": [
+    {
+      "name": "B1",
+      "children": [
+        {
+          "name": "C1",
+          "value": 100
+        },
+        {
+          "name": "C2",
+          "value": 300
+        },
+        {
+          "name": "C3",
+          "value": 200
+        }
+      ]
+    },
+    {
+      "name": "B2",
+      "value": 200
+    }
+  ]
+};
+
+var treemapLayout = d3.treemap()
+  .size([350, 200])
+  .paddingOuter(10);
+
+var root = d3.hierarchy(data);
+
+root.sum(function(d) {
+  return d.value;
+});
+
+treemapLayout(root);
+
+d3.select('svg g')
+  .selectAll('rect')
+  .data(root.descendants())
+  .enter()
+  .append('rect')
+  .attr('x', function(d) { return d.x0; })
+  .attr('y', function(d) { return d.y0; })
+  .attr('width', function(d) { return d.x1 - d.x0; })
+  .attr('height', function(d) { return d.y1 - d.y0; })
+
+
+  </script>
+</body>
+</html>

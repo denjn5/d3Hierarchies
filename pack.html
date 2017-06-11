@@ -1,72 +1,60 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <head>
-  <title>Pack layout</title>
+    <title>Circle Pack</title>
+    <!-- Based on d3indepth's https://bl.ocks.org/d3indepth/6f592569629eaa241e755d4de1aed509 -->
+    <script src="js/d3.v4.min.js"></script>
 </head>
 
 <style>
-circle {
-  fill: #333;
-  opacity: 0.3;
-  stroke: white;
-}
+    circle {
+        stroke: white;
+        fill: #05668D;
+        opacity: 0.3;
+    }
 </style>
 
-<body>
-  <svg width="200" height="200">
+<svg>
     <g></g>
-  </svg>
+</svg>
 
-    <script src="js/d3.v4.min.js"></script>
-  <script>
-var data = {
-  "name": "A1",
-  "children": [
-    {
-      "name": "B1",
-      "children": [
-        {
-          "name": "C1",
-          "value": 100
-        },
-        {
-          "name": "C2",
-          "value": 300
-        },
-        {
-          "name": "C3",
-          "value": 200
-        }
-      ]
-    },
-    {
-      "name": "B2",
-      "value": 200
-    }
-  ]
-};
+<script>
+    // My variables
+    var vWidth = 200;
+    var vHeight = 200;
+    var myData = {
+        "name": "Rooooot",
+        "children": [{
+            "name": "Topic X",
+            "children": [{"name": "Sub X1", "size": 300}]
+        }, {
+            "name": "Topic Y",
+            "children": [{"name": "Sub Y1", "size": 200}, {"name": "Sub Y2", "size": 200}]
+        }, {
+            "name": "Topic Z",
+            "size": 400
+        }]
+    };
 
-var packLayout = d3.pack()
-  .size([200, 200]);
+    d3.select('svg')
+        .attr('width', vWidth)
+        .attr('height', vHeight);
 
-var rootNode = d3.hierarchy(data);
+    // d3 setup
+    var rootNode = d3.hierarchy(myData);
 
-rootNode.sum(function(d) {
-  return d.value;
-});
+    rootNode.sum(function (d) { return d.size; });
 
-packLayout(rootNode);
+    var packLayout = d3.pack()
+        .size([vWidth, vHeight]);
 
-d3.select('svg g')
-  .selectAll('circle')
-  .data(rootNode.descendants())
-  .enter()
-  .append('circle')
-  .attr('cx', function(d) { return d.x; })
-  .attr('cy', function(d) { return d.y; })
-  .attr('r', function(d) { return d.r; })
+    packLayout(rootNode);
 
+    d3.select('svg g')
+        .selectAll('circle').data(rootNode.descendants()).enter()
+        .append('circle')
+        .attr('cx', function (d) { return d.x; })
+        .attr('cy', function (d) { return d.y; })
+        .attr('r', function (d) { return d.r; })
 
-  </script>
-</body>
-</html>
+</script>
