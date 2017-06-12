@@ -51,14 +51,15 @@
 
     // d3 setup
     var root = d3.hierarchy(myData);
+    var links = root.descendants().slice(1);
+    var nodes = root.descendants();
 
     var treemap = d3.tree().size([vHeight * 0.9, vWidth * 0.9]);
 
     treemap(root);
 
-    // adds links
     d3.select('svg g')
-        .selectAll("path").data(root.descendants().slice(1)).enter().append("path")
+        .selectAll("path").data(links).enter().append("path")
         .attr("d", function (d) {
             return "M" + d.y + "," + d.x
                 + "C" + (d.y + d.parent.y) / 2 + "," + d.x
@@ -66,18 +67,8 @@
                 + " " + d.parent.y + "," + d.parent.x;
         });
 
-//        .attr("d", d3.linkHorizontal()
-//            .x(function(d) { return d.y; })
-//            .y(function(d) { return d.x; }));
-//
-//        .attr("d", function(d) {
-//            var o = {x: d.source.px, y: d.source.py};
-//            return diagonal({source: o, target: o});
-//          });
-
-    // add nodes
     d3.select('svg g')
-        .selectAll("circle").data(root.descendants()).enter().append("circle")
+        .selectAll("circle").data(nodes).enter().append("circle")
         .attr("r", 10)
         .attr("transform", function (d) { return "translate(" + d.y + "," + d.x + ")"; });
 

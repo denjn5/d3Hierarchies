@@ -8,6 +8,12 @@
         @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
         @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
 
+        .title-slide {
+            background-image: url(img/twistyTree2.jpg);
+            background-size: cover;
+            color: white;
+        }
+
         body {
             font-family: 'Droid Serif';
         }
@@ -32,6 +38,17 @@
             font-weight: 100;
         }
 
+        .contextLL {
+            position: absolute;
+            bottom: 40px;
+            left: 40px;
+            text-align: right;
+            color: lightgray;
+            font-size: larger;
+            font-family: 'Yanone Kaffeesatz';
+            font-weight: 100;
+        }
+
         .author {
             position: absolute;
             right: 75px;
@@ -47,10 +64,11 @@
 <body>
 <textarea id="source">
 
-class: center, middle
+class: center, middle, title-slide
+.contextLL[d3-Unconf | 2017 | David Richards]
 
 # Hierarchical Datasets
-## When? What? How?
+### When?&nbsp; What?&nbsp; How?
 
 ---
 .context[hierarchical data]
@@ -78,13 +96,13 @@ hierarchical datasets.
 ... & some d3 visuals
 <br>&nbsp;<br>
 --
-(Today we focus is on the data; that means our in-class visuals will stay light.)
+(Today we focus on the data. We'll apply it to visuals, but that'll be light.)
 
 ---
-
 class: center, middle
 
 ## When do they matter?
+<!-- ##  WHEN  ####################################################################################################-->
 
 ---
 .context[hierarchical data]
@@ -109,7 +127,7 @@ Good programmers worry about data structures and their relationships.<br>
 <br>&nbsp;<br>
 <br>&nbsp;<br>
 --
-.center[**It matters now....**]
+.center[**They matter now....**]
 
 ---
 name: natural-hierarchies
@@ -207,6 +225,7 @@ template: natural-hierarchies
 </table>
 
 ---
+<!-- ##  WHAT  ####################################################################################################-->
 
 class: center, middle
 
@@ -215,9 +234,30 @@ class: center, middle
 ---
 .context[what are they]
 
+# Model your data with Legos
+
+_How do we make this “real” for participants?  Label blocks? Or use colors for data types?_
+
+---
+.context[what are they]
+
 # Hierarchy vs. Tabular
 
-
+<table class="display dataTable no-footer">
+  <thead>
+    <tr role="row"><th>Hierarchical</th><th>Tabular</th></tr>
+  </thead>
+<tr role="row" class="odd">
+    <td>Relationships are intrinsic</td><td class=" dt-right">Relationships formed at run-time</td>
+</tr>
+    <tr role="row" class="even"><td>smaller data</td>
+    <td class=" dt-right">larger data</td></tr>
+    </tr>
+        <tr role="row" class="even"><td>a couple of layers of one-to-many relationships</td>
+    <td class=" dt-right">many-to-many relationships</td></tr>
+    <tr role="row" class="even"><td>gateway to sunbursts, trees, treemaps, circle packs, and who knows what else</td>
+    <td class=" dt-right"></td></tr>
+</table>
 
 ---
 .context[what are they]
@@ -248,6 +288,7 @@ class: center, middle
 #
 
 ---
+<!-- ##  HOW  ####################################################################################################-->
 
 class: center, middle
 
@@ -259,9 +300,12 @@ class: center, middle
 
 # Read the docs ([d3-hierarchy](https://github.com/d3/d3-hierarchy "d3 hierarchy api documentation"))
 
+We're moving from concept to code.
 
+`stratify`
 
 ---
+<!-- ##  EXAMPLES  ################################################################################################-->
 
 class: center, middle
 
@@ -270,8 +314,16 @@ class: center, middle
 ---
 .context[examples]
 
-#
+# Treemap
 
+---
+<!-- ##  SUMMARY  ################################################################################################-->
+.contextLL[slides created with remark.js]
+
+# Thanks!
+
+
+<!-- TODO: Fill in more: LinkedIn (https://www.linkedin.com/in/david-richards-18545310/) and Twitter (https://twitter.com/learn_do_repeat)  -->
 
 
 </textarea>
